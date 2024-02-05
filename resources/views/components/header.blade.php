@@ -15,8 +15,18 @@
 
 <body>
 
-    <header>
-        <div>
-          <div class="logo_main"><a> <img> </a></div>
+    <header >
+        <div class="d-flex flex-column fixed-top header align-items-center justify-content-around" >
+          <div class="logo_main"><a>Главная<img> </a></div>
+            <div class="d-flex flex-column align-items-center nav_meni"> 
+                <a class="fs-4">Главная</a>
+                <a class="fs-4">Тарифы</a>
+                <a class="fs-4">Забронировать</a>
+                <a class="fs-4">Личный кабинет</a>
+            </div>
+                <div> 
+                    <a>Авторизация</a>
+                    <a>Регистрация</a>
+                </div>
         </div>
     </header>
