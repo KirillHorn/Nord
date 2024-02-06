@@ -37,9 +37,10 @@ class AuthController extends Controller
         $userInfo = $request->all();
         $userCreate = User::create([
             'login' => $userInfo['login'],
+            'name' => $userInfo['name'],
             'email' => $userInfo['email'],
             'password' => Hash::make($userInfo['password']),
-            'role' => "2",
+            'id_role' => "2",
         ]);
         if ($userCreate) {
             Auth::login($userCreate);
