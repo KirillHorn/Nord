@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/personal_data', function () {
+    return view('personal_data');
+});
 
 Route::get('/sign_in', [AuthController::class, "sign_in"]);
 Route::get('/sign_up', [AuthController::class, "sign_up"]);

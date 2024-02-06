@@ -25,8 +25,10 @@
           @endauth
         </ul>
         <div class="text-end">
+          @guest
           <a href="/sign_in" role="button" class="btn btn-outline-light me-2">Войти</a>
-          <a href="/sign_up" role="button" class="btn btn-warning">Регистрация</a>
+          <a href="/sign_up" role="button" class="btn btn-warning">Регистрация</a>     
+          @endguest
           @auth
           <a href="/personal_data" role="button" class="btn btn-outline-light me-2">Личный кабинет</a>
           <a href="/sign_out" role="button" class="btn btn-warning">Выход</a>
