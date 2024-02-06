@@ -4,7 +4,7 @@
 
 }
 body {
-    background-color: #ffffff;
+    background-color: rgb(33,37,41);
 }
 a {
     text-decoration: none;
@@ -22,3 +22,7 @@ a {
 .nav_meni a {
     color: #ffffff;
 }
+input::placeholder {
+    color: rgb(33,37,41);
+  }
+  
