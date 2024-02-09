@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,8 @@ Route::get('/personal_data', function () {
 
 Route::get('/sign_in', [AuthController::class, "sign_in"]);
 Route::get('/sign_up', [AuthController::class, "sign_up"]);
-Route::post('sign_in_validate', [AuthController::class, 'sign_in_validate']);
-Route::post('sign_up_validate', [AuthController::class, 'sign_up_validate']);
+Route::post('/sign_in_validate', [AuthController::class, 'sign_in_validate']);
+Route::post('/sign_up_validate', [AuthController::class, 'sign_up_validate']);
+Route::get('/sign_out', [AuthController::class, 'sign_out']);
+
+Route::get('/add_money',[MainController::class, 'add_money']);

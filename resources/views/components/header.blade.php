@@ -22,6 +22,7 @@
           <li><a href="#" class="nav-link px-2 text-white">Контакты</a></li>
           @auth
             <li><a href="#" class="nav-link px-2 text-white">Забронировать</a></li>
+            <li><a href="/add_money" class="nav-link text-warning">Баланс: 200р</a></li>
           @endauth
         </ul>
         <div class="text-end">
@@ -30,6 +31,7 @@
           <a href="/sign_up" role="button" class="btn btn-warning">Регистрация</a>     
           @endguest
           @auth
+          {{-- <a href="/personal_data" class="text-decoration-none text-white">Баланс: 200р</a> --}}
           <a href="/personal_data" role="button" class="btn btn-outline-light me-2">Личный кабинет</a>
           <a href="/sign_out" role="button" class="btn btn-warning">Выход</a>
           @endauth
