@@ -22,7 +22,7 @@
           <li><a href="#" class="nav-link px-2 text-white">Контакты</a></li>
           @auth
             <li><a href="#" class="nav-link px-2 text-white">Забронировать</a></li>
-            <li><a href="/add_money" class="nav-link text-warning">Баланс: 200р</a></li>
+            <li><a href="/add_money" class="nav-link text-warning">Баланс: {{Auth::user()->balance}}р</a></li>
           @endauth
         </ul>
         <div class="text-end">

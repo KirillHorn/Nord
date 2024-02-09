@@ -41,6 +41,7 @@ class AuthController extends Controller
             'email' => $userInfo['email'],
             'password' => Hash::make($userInfo['password']),
             'id_role' => "2",
+            'balance' => 0,
         ]);
         if ($userCreate) {
             Auth::login($userCreate);

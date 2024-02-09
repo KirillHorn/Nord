@@ -29,3 +29,4 @@ Route::post('/sign_up_validate', [AuthController::class, 'sign_up_validate']);
 Route::get('/sign_out', [AuthController::class, 'sign_out']);
 
 Route::get('/add_money',[MainController::class, 'add_money']);
+Route::patch('/add_money', [MainController::class, 'balance'])->name('balance');

@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use App\Models\User;
 
 class MainController extends Controller
 {
     public function add_money(){
         return view('/add_money');
+    }
+
+    public function balance(Request $request)
+    {
+        Auth::user()->balance += $request['balance'];
+        Auth::user()->save();
+        return redirect('/')->with('success','Вы пополнили баланс');
     }
 }

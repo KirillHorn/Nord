@@ -17,7 +17,6 @@
                   <td>{{Auth::user()->email}}</td>
                 </tr>
               </tbody>
-              <caption><a href="" role="button" class="btn btn-primary">Изменить</a></caption>
           </table>
     </div>
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('balance');
             $table->foreignId('id_role')->references('id')->on('roles');
             $table->rememberToken();
             $table->timestamps();
