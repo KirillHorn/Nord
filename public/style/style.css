@@ -3,6 +3,12 @@
     padding: 0;
 
 }
+.p-3 {
+padding:0rem!important;
+}
+section {
+    color: #ffffff;
+}
 body {
     background-color: rgb(33,37,41);
 }
@@ -24,5 +30,16 @@ a {
 }
 input::placeholder {
     color: rgb(33,37,41);
+  }
+  .section_back {
+    background-image: url('/img/1673177565_foni-club-p-oboi-anime-cherno-zheltie-1.png');
+    /* background-size: contain; */
+    background-repeat: no-repeat;
+    height: 600px;
+    width: 100%;
+    
+  }
+  .banner_main {
+    
   }
   
