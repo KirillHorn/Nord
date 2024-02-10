@@ -1,4 +1,5 @@
-<x-header></x-header>
+<x-link></x-link>
+<x-alerts></x-alerts>
 <div class="container">
     <h2 class="text-center text-white">Регистрация</h2>
     <form class="d-flex flex-column gap-3 mt-4 mb-2" method="POST" action="/sign_up_validate"

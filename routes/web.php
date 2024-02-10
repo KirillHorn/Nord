@@ -29,7 +29,9 @@ Route::post('/sign_in_validate', [AuthController::class, 'sign_in_validate']);
 Route::post('/sign_up_validate', [AuthController::class, 'sign_up_validate']);
 Route::get('/sign_out', [AuthController::class, 'sign_out']);
 
-Route::get('/add_money',[MainController::class, 'add_money']);
+Route::get('/add_money', [MainController::class, 'add_money']);
 Route::patch('/add_money', [MainController::class, 'balance'])->name('balance');
 
-Route::get('/admin',[AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/booking', [AdminController::class, 'booking']);
+Route::get('/admin/index/edit', [AdminController::class, 'edit']);

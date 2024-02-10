@@ -17,9 +17,9 @@
             <thead>
                 <tr>
                     <th scope="col">Название тарифа</th>
-                    <th scope="col">Конфигурация пк</th>
-                    <th scope="col">Стоимость/час</th>
-
+                    <th scope="col">Почта</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Оставшееся время</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +27,8 @@
                     <th>ntcn</th>
                     <td>Mark</td>
                     <td>Otto</td>
-                    <td><a href="/admin/index/edit">Изменить</a></td>
+                    <td>Otto</td>
+                    <td><a href="/admin/edit" role="button" class="btn btn-warning">Изменить</a></td>
                 </tr>
             </tbody>
         </table>
