@@ -1,5 +1,4 @@
 <x-header></x-header>
-<body>
     <div class="container">
         <h2>Пополнить баланс</h2>
         <form id="prof" method="POST" class="m-auto" action="{{route('balance')}}" style="max-width:50%">

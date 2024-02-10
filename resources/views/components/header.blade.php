@@ -37,7 +37,7 @@
           @endauth
         </div>
       </div>
-      <hr class="mt-2">
+     
     </div>
 </header>
 

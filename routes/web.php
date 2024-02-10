@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,5 @@ Route::get('/sign_out', [AuthController::class, 'sign_out']);
 
 Route::get('/add_money',[MainController::class, 'add_money']);
 Route::patch('/add_money', [MainController::class, 'balance'])->name('balance');
+
+Route::get('/admin',[AdminController::class, 'index']);

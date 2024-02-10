@@ -1,5 +1,5 @@
 <x-header></x-header>
-<body>
+
     <div class="container d-flex flex-wrap gap-3 px-4">
         <x-menu></x-menu>
         <table class="table table-dark " style="max-width: 80%">

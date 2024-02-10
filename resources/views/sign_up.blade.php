@@ -53,3 +53,4 @@
 <p class="text-white text-center mb-0">Входя в аккаунт или создавая новый, вы соглашаетесь с нашими</p>
 <p class="text-white text-center"><a href="">Правилами и условиями</a> и <a href="">Положением о конфиденциальности</a></p>
 </div>
+</body>
