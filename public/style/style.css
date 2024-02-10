@@ -32,16 +32,37 @@ input::placeholder {
     color: rgb(33,37,41);
   }
   .section_back {
-    background-image: url('/img/1673177565_foni-club-p-oboi-anime-cherno-zheltie-1.png') ;
+    background-image: url('/img/fon2sec.png') ;
     /* background-size: contain; */
     background-repeat: no-repeat;
-    height: 800px;
+    height: 750px;
     width: 100%;
 
   }
   .banner_main {
     padding-top: 15%;
-    color: #ffe600;
+    color: #ffc107;
     font-size:calc(12px + 8 * (100vw - 320px) / 880);
-    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    -webkit-text-stroke: 1px #ffc107;
   }
+.banner_main a {
+    width: 200px;
+    height: 40px;
+    color: rgb(33,37,41);
+    -webkit-text-stroke: 0px #ffffff;
+}
+.banner_main a:hover {
+    color: rgb(255, 255, 255);
+}
+.info_sait {
+   margin-top: 40px;
+   color: #ffc107 ;
+}
+.info_sait_map {
+    margin-bottom: 40px;
+}
+.map {
+    width: 50%;
+    height: 40%;
+    border: 3px solid #ffc107   ;
+}
