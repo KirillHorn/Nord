@@ -32,14 +32,16 @@ input::placeholder {
     color: rgb(33,37,41);
   }
   .section_back {
-    background-image: url('/img/1673177565_foni-club-p-oboi-anime-cherno-zheltie-1.png');
+    background-image: url('/img/1673177565_foni-club-p-oboi-anime-cherno-zheltie-1.png') ;
     /* background-size: contain; */
     background-repeat: no-repeat;
-    height: 600px;
+    height: 800px;
     width: 100%;
-    
+
   }
   .banner_main {
-    
+    padding-top: 15%;
+    color: #ffe600;
+    font-size:calc(12px + 8 * (100vw - 320px) / 880);
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
   }
-  
