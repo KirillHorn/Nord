@@ -7,11 +7,11 @@
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">Home</a></li>
-      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">Features</a></li>
-      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">Pricing</a></li>
-      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">FAQs</a></li>
-      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">About</a></li>
+      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">Главная</a></li>
+      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">О нас</a></li>
+      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">Фото</a></li>
+      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">Цены</a></li>
+      <li class="nav-item"><a  style="color: #ffffff;" href="#" class="nav-link px-2 ">Контакты</a></li>
     </ul>
   </footer>
 </div>

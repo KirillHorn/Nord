@@ -32,6 +32,7 @@
           @endguest
           @auth
           {{-- <a href="/personal_data" class="text-decoration-none text-white">Баланс: 200р</a> --}}
+    
           <a href="/personal_data" role="button" class="btn btn-outline-light me-2">Личный кабинет</a>
           <a href="/sign_out" role="button" class="btn btn-warning">Выход</a>
           @endauth
