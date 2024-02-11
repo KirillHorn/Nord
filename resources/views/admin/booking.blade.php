@@ -28,7 +28,6 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>Otto</td>
-                    <td><a href="/admin/edit" role="button" class="btn btn-warning">Изменить</a></td>
                 </tr>
             </tbody>
         </table>

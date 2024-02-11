@@ -10,10 +10,15 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+
+
     public function tarif()
     {
+
         return view('admin.tarif');
     }
+
+
     public function booking()
     {
         return view('admin.booking');

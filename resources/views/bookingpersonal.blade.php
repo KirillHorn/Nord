@@ -14,7 +14,7 @@
                     <th>ntcn</th>
                     <td>Mark</td>
                     <td>Otto</td>
-                    <td><a href="#" role="button" class="btn btn-danger">Удалить</a></td>
+                    <td><a href="#" role="button" class="btn btn-danger">Отменить</a></td>
                 </tr>
             </tbody>
         </table>

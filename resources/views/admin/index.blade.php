@@ -18,6 +18,7 @@
                 <tr>
                     <th scope="col">Название тарифа</th>
                     <th scope="col">Конфигурация пк</th>
+                    <th scope="col">Количество мест</th>
                     <th scope="col">Стоимость/час</th>
 
                 </tr>
@@ -26,6 +27,7 @@
                 <tr>
                     <th>ntcn</th>
                     <td>Mark</td>
+                    <td>Otto</td>
                     <td>Otto</td>
                     <td><a href="/admin/edit">Изменить</a></td>
                 </tr>
