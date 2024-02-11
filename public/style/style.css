@@ -35,6 +35,8 @@ input::placeholder {
     background-image: url('/img/fon2sec.png') ;
     /* background-size: contain; */
     background-repeat: no-repeat;
+    /* background-size: cover; */
+    object-fit: cover;
     height: 750px;
     width: 100%;
 

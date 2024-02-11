@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
+use Database\Seeders\tariff;
 
 return new class extends Migration
 {
@@ -17,6 +19,8 @@ return new class extends Migration
             $table->float('cost');
             $table->timestamps();
         });
+
+        Artisan::call('db:seed', ['--class'=>tariff::class]);
     }
 
     /**
