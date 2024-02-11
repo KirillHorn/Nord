@@ -1,6 +1,6 @@
 <x-header></x-header>
 
-    <div class="container d-flex flex-wrap gap-3 px-4">
+    <div class="container d-flex flex-wrap gap-3 px-4 mt-3">
         <x-menu></x-menu>
         <table class="table table-dark " style="max-width: 80%">
 			<tbody>

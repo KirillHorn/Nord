@@ -27,7 +27,7 @@
                     <th>ntcn</th>
                     <td>Mark</td>
                     <td>Otto</td>
-                    <td><a href="/admin/index/edit">Изменить</a></td>
+                    <td><a href="/admin/edit">Изменить</a></td>
                 </tr>
             </tbody>
         </table>
