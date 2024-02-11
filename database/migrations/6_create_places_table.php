@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('number_place');
             $table->foreignId('tariff_id')->references('id')->on('tariffs');
-            $table->foreignId('config_id')->references('id')->on('configs');
+          
             $table->foreignId('status')->references('id')->on('statusplases');
             $table->timestamps();
         });

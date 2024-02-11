@@ -16,9 +16,9 @@ class tariff extends Seeder
     {
         $date=Carbon::now();
         DB::table('tariffs')->insert([
-        ['title_tariff'=>'Стандарт', 'cost' => 100,  'created_at'=>$date, 'updated_at'=>$date],
-        ['title_tariff'=>'Люкс', 'cost' => 130,  'created_at'=>$date, 'updated_at'=>$date],
-        ['title_tariff'=>'Премиум', 'cost' => 170,  'created_at'=>$date, 'updated_at'=>$date],
+        ['title_tariff'=>'Стандарт', 'cost' => 100, 'config_id' => 1,    'created_at'=>$date, 'updated_at'=>$date],
+        ['title_tariff'=>'Люкс', 'cost' => 130,'config_id' => 2,  'created_at'=>$date, 'updated_at'=>$date],
+        ['title_tariff'=>'Премиум', 'cost' => 170,'config_id' => (3),  'created_at'=>$date, 'updated_at'=>$date],
     ]);
     }
 }

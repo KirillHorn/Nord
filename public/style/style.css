@@ -63,8 +63,28 @@ input::placeholder {
 .info_sait_map {
     margin-bottom: 40px;
 }
+.text_company {
+    font-size:calc(12px + 10 * (100vw - 320px) / 880);
+ 
+}
 .map {
-    width: 50%;
     height: 40%;
+    width:calc(300px + 200  * (100vw - 320px) / 880);
     border: 3px solid #ffc107   ;
+}
+.info-block {
+    margin: 40px 0px;
+}
+.info-item {
+    background-color: #ffc107;
+    color: rgb(33,37,41);
+    width: 25%;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.info-item p {
+    margin-bottom: 0rem;
+}
+footer {
+    color: #ffffff;
 }

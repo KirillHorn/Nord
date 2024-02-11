@@ -17,10 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('title_tariff');
             $table->float('cost');
+            $table->foreignId('config_id')->references('id')->on('configs');
             $table->timestamps();
+
+            
+        // Artisan::call('db:seed', ['--class'=>tariff::class]);
         });
 
-        Artisan::call('db:seed', ['--class'=>tariff::class]);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\tariffs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -10,6 +11,10 @@ use App\Models\User;
 
 class MainController extends Controller
 {
+    public function index() {
+        $tariffs = tariffs::all();
+        return view('index', ['tariff' => $tariffs]);
+    }
     public function bookingpersonal(){
         return view('/bookingpersonal');
     }

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class tariffs extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title_tafiff',
+        'cost',
+        'config_id'
+    ];
+
+    public function configs() {
+        return $this->belongsTo(configs::class, 'config_id', 'id');
+    }
 }

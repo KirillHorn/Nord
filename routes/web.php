@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+
+
+Route::get('/', [MainController::class, "index"]);
+
 Route::get('/personal_data', function () {
     return view('personal_data');
 });
