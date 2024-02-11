@@ -68,8 +68,8 @@ class AuthController extends Controller
         $user_authorization = $request->only("email", "password");
 
         if (Auth::attempt(["email" => $user_authorization['email'], "password" => $user_authorization['password']])) {
-            if (Auth::user()->role == 1) {
-                return redirect('/admin/index')->with('success', 'Вы вошли как Администратор');
+            if (Auth::user()->id_role == 1) {
+                return redirect('/admin')->with('success', 'Вы вошли как Администратор');
             } else {
                 return redirect('/')->with('success', 'Добро пожаловать');
             }

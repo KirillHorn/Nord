@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\configs;
+use App\Models\tariffs;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $tafiffs=tariffs::all();
+     
+        return view('admin.index', ['tariff' => $tafiffs]);
     }
 
 
@@ -23,8 +27,61 @@ class AdminController extends Controller
     {
         return view('admin.booking');
     }
-    public function edit()
+    public function edit($id)
     {
-        return view('admin.edit');
+        $tariff=tariffs::find($id);
+        return view('admin.edit', ['tariff' => $tariff]);
+    }
+
+    public function edit_reduct(Request $request, tariffs $id) {
+        $request->validate(
+            [
+                'title_tariff' => 'required',
+                'cost' => 'required|numeric',
+                'CPU' => 'required',
+                'RAM' => 'required',
+                'card' => 'required',
+                'monitor' => 'required',
+                'keyboard' => 'required',
+                'mouse' => 'required',
+                'headphones' => 'required',
+            ],
+            [
+                'title_tariff.required' => 'Поле обязательно для заполнения',
+                'cost.required' => 'Поле обязательно для заполнения',
+                'cost.numeric' => 'Должны быть только числа!',
+                'CPU.required' => 'Поле обязательно для заполнения',
+                'RAM.required' => 'Поле обязательно для заполнения',
+                'card.required' => 'Поле обязательно для заполнения',
+                'monitor.required' => 'Поле обязательно для заполнения',
+                'keyboard.required' => 'Поле обязательно для заполнения',
+                'mouse.required' => 'Поле обязательно для заполнения',
+                'headphones.required' => 'Поле обязательно для заполнения',
+            ],
+        );
+        $info=$request->all();
+        $config= $id->config_id;
+       $id->fill(
+        [
+            'title_tariff' => $info['title_tariff'],
+            'cost' =>  $info['cost'],
+        ]
+        );
+        $id->save();
+        $config= $id->config_id;   
+        $config_all= configs::find($config);
+        $config_all->fill([
+            'CPU' => $info['CPU'],
+            'RAM' => $info['RAM'],
+            'card' => $info['card'],
+            'monitor' => $info['card'],
+            'keyboard' => $info['keyboard'],
+            'mouse' => $info['mouse'],
+            'headphones' => $info['headphones'],
+        ]);
+        $config_all->save();
+
+        return redirect()->back()->with('success','Редактирование прошло успешно!');
+          
     }
 }

@@ -24,13 +24,15 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($tariff as $tariffs)
                 <tr>
-                    <th>ntcn</th>
-                    <td>Mark</td>
+                    <td>{{$tariffs->title_tariff}}</td>
+                    <td>{{$tariffs->config_id}}</td>
                     <td>Otto</td>
-                    <td>Otto</td>
-                    <td><a href="/admin/edit">Изменить</a></td>
+                    <td>{{$tariffs->cost}}</td>
+                    <td><a href="/admin/{{$tariffs->id}}/edit">Изменить</a></td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

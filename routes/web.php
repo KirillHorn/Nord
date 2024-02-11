@@ -36,4 +36,5 @@ Route::patch('/add_money', [MainController::class, 'balance'])->name('balance');
 
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/booking', [AdminController::class, 'booking']);
-Route::get('/admin/edit', [AdminController::class, 'edit']);
+Route::get('/admin/{id}/edit', [AdminController::class, 'edit']);
+Route::post('/{id}/edit_reduct', [AdminController::class, 'edit_reduct']);
