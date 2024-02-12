@@ -71,10 +71,40 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Редактирование прошло успешно!');
 
     }
+    public function places() {
+        $places = places::all();
+        return view('admin.places',[ 'places' => $places]);
+    }
     public function edit_places() {
         $tariffs = tariffs::all();
         $status = statusplases::all();
-        return view('admin.places',[ 'tariffs' => $tariffs, 'status' => $status]);
+        return view('admin.editplaces',[ 'tariffs' => $tariffs, 'status' => $status]);
+    }
+    public function edit_places_validate(Request $request) {
+        $request->validate([
+            'number_place' => "required|numeric",
+            'tariff' => "required"
+        ], [
+            'number_place.required' => 'Это поле должно быть заполнено!',
+            'number_place.numeric' => 'Только числовые значения!',
+            'tariff.required' => 'Выберите определенный тариф',
+        ]);
+        $places = $request->all();
+        $addPlaces=places::create([
+            "number_place" => $places['number_place'],
+            "tariff_id" => $places['tariff'],
+            "status" => 1,
+        ]);
+
+        if ($addPlaces) {
+            return redirect()->back()->with("success", "Вы добавили место!");
+        } else {
+            return redirect()->back()->with("error", "Ошибка при добавлении!");
+        }
+    }
+    public function delete_places( places $id) {
+        $id->delete();
+        return redirect()->back()->with('error', 'Вы удалили место!');
     }
     public function booking() //страница забронированных мест
     {

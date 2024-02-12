@@ -136,3 +136,15 @@ footer {
         width: 48% !important;
     }
 }
+
+.add_places {
+    background-color: #ffc107;
+    padding: 10px;
+    margin-left: 35%;
+    max-width: 200px;
+    color: rgb(33, 37, 41);
+    border-radius: 10px;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}

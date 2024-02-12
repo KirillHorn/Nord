@@ -10,7 +10,7 @@ class tariffs extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title_tafiff',
+        'title_tariff',
         'cost',
         'config_id'
     ];
