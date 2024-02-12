@@ -30,7 +30,7 @@
                     <td>{{$tariffs->config_id}}</td>
                     <td>Otto</td>
                     <td>{{$tariffs->cost}}</td>
-                    <td><a href="/admin/{{$tariffs->id}}/edit">Изменить</a></td>
+                    <td><a href="/admin/{{$tariffs->id}}/edit" class="btn btn-warning">Изменить</a></td>
                 </tr>
                 @endforeach
             </tbody>

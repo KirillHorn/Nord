@@ -18,4 +18,8 @@ class tariffs extends Model
     public function configs() {
         return $this->belongsTo(configs::class, 'config_id', 'id');
     }
+
+    public function places() {
+        return $this->hasMany(places::class, 'tariff_id', 'id');
+    }
 }

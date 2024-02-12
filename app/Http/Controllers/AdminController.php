@@ -4,36 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\configs;
 use App\Models\tariffs;
+use App\Models\places;
+use App\Models\statusplases;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index() //страница тарифов
     {
         $tafiffs=tariffs::all();
-     
         return view('admin.index', ['tariff' => $tafiffs]);
     }
-
-
-    public function tarif()
-    {
-
-        return view('admin.tarif');
-    }
-
-
-    public function booking()
-    {
-        return view('admin.booking');
-    }
-    public function edit($id)
+    public function edit($id) //страница определенного тарифа
     {
         $tariff=tariffs::find($id);
         return view('admin.edit', ['tariff' => $tariff]);
     }
-
-    public function edit_reduct(Request $request, tariffs $id) {
+    public function edit_reduct(Request $request, tariffs $id) { //функция добавление тарифа
         $request->validate(
             [
                 'title_tariff' => 'required',
@@ -68,7 +55,7 @@ class AdminController extends Controller
         ]
         );
         $id->save();
-        $config= $id->config_id;   
+        $config= $id->config_id;
         $config_all= configs::find($config);
         $config_all->fill([
             'CPU' => $info['CPU'],
@@ -82,6 +69,16 @@ class AdminController extends Controller
         $config_all->save();
 
         return redirect()->back()->with('success','Редактирование прошло успешно!');
-          
+
     }
+    public function edit_places() {
+        $tariffs = tariffs::all();
+        $status = statusplases::all();
+        return view('admin.places',[ 'tariffs' => $tariffs, 'status' => $status]);
+    }
+    public function booking() //страница забронированных мест
+    {
+        return view('admin.booking');
+    }
+
 }
