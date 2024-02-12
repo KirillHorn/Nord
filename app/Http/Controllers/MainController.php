@@ -11,15 +11,18 @@ use App\Models\User;
 
 class MainController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $tariffs = tariffs::all();
         return view('index', ['tariff' => $tariffs]);
     }
-    public function bookingpersonal(){
+    public function bookingpersonal()
+    {
         return view('/bookingpersonal');
     }
 
-    public function add_money(){
+    public function add_money()
+    {
         return view('/add_money');
     }
 
@@ -27,6 +30,6 @@ class MainController extends Controller
     {
         Auth::user()->balance += $request['balance'];
         Auth::user()->save();
-        return redirect('/')->with('success','Вы пополнили баланс');
+        return redirect('/')->with('success', 'Вы пополнили баланс');
     }
 }

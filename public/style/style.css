@@ -3,18 +3,23 @@
     padding: 0;
 
 }
+
 .p-3 {
-padding:0rem!important;
+    padding: 0rem !important;
 }
+
 section {
     color: #ffffff;
 }
+
 body {
-    background-color: rgb(33,37,41);
+    background-color: rgb(33, 37, 41);
 }
+
 a {
     text-decoration: none;
 }
+
 .header {
     width: 15%;
     height: 100%;
@@ -22,17 +27,21 @@ a {
     gap: 200px;
     color: #ffffff;
 }
+
 .nav_meni {
     gap: 20px;
 }
+
 .nav_meni a {
     color: #ffffff;
 }
+
 input::placeholder {
-    color: rgb(33,37,41);
-  }
-  .section_back {
-    background-image: url('/img/fon2sec.png') ;
+    color: rgb(33, 37, 41);
+}
+
+.section_back {
+    background-image: url('/img/fon2sec.png');
     /* background-size: contain; */
     background-repeat: no-repeat;
     /* background-size: cover; */
@@ -40,51 +49,90 @@ input::placeholder {
     height: 750px;
     width: 100%;
 
-  }
-  .banner_main {
+}
+
+.banner_main {
     padding-top: 15%;
     color: #ffc107;
-    font-size:calc(12px + 8 * (100vw - 320px) / 880);
+    font-size: calc(12px + 8 * (100vw - 320px) / 880);
     -webkit-text-stroke: 1px #ffc107;
-  }
+}
+
 .banner_main a {
     width: 200px;
     height: 40px;
-    color: rgb(33,37,41);
+    color: rgb(33, 37, 41);
     -webkit-text-stroke: 0px #ffffff;
 }
+
 .banner_main a:hover {
     color: rgb(255, 255, 255);
 }
+
 .info_sait {
-   margin-top: 40px;
-   color: #ffc107 ;
+    margin-top: 40px;
+    color: #ffc107;
 }
+
 .info_sait_map {
     margin-bottom: 40px;
 }
+
 .text_company {
-    font-size:calc(12px + 10 * (100vw - 320px) / 880);
- 
+    font-size: calc(12px + 10 * (100vw - 320px) / 880);
+
 }
+
 .map {
     height: 40%;
-    width:calc(250px + 200  * (100vw - 320px) / 880);
-    border: 3px solid #ffc107   ;
+    width: calc(250px + 200 * (100vw - 320px) / 880);
+    border: 3px solid #ffc107;
 }
+
 .info-block {
     margin: 40px 0px;
 }
+
 .info-item {
     background-color: #ffc107;
-    color: rgb(33,37,41);
+    color: rgb(33, 37, 41);
     width: 25%;
     padding: 10px 20px;
     border-radius: 20px;
 }
+
 .info-item p {
     margin-bottom: 0rem;
 }
+
 footer {
     color: #ffffff;
+}
+
+
+
+@media (max-width: 767.98px) {
+    .info-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info-item {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .img-container {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 767.98px) {
+    .img-container {
+        width: 40% !important;
+    }
+
+    .text-about {
+        width: 48% !important;
+    }
 }
