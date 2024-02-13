@@ -45,3 +45,5 @@ Route::get('/admin/places', [AdminController::class, 'places' ]); //страни
 Route::get('/admin/editplaces', [AdminController::class, 'edit_places' ]); //страница добавление места
 Route::post('/edit_places_validate', [AdminController::class, 'edit_places_validate' ]); //функция добавление места
 Route::get('/{id}/delete_places', [AdminController::class, 'delete_places' ]); //страница добавление места
+
+Route::get('placees', [MainController::class, 'placees_view']);
