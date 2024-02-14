@@ -1,7 +1,7 @@
 <x-header></x-header>
-<div class="container">
+<div class="container mt-3">
     <h2 class="text-center text-white">Регистрация</h2>
-    <form class="d-flex flex-column gap-3 mt-4 mb-2" method="POST" action="/sign_up_validate"
+    <form class="d-flex flex-column gap-3 mt-4 mb-2 form" method="POST" action="/sign_up_validate"
         style="max-width:40%;margin:0 auto">
         @csrf
         <div class="form-group text-white">

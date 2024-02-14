@@ -1,5 +1,5 @@
 <x-header />
-<section class="section_back">
+<section class="section_back container-fluid mt-2">
     <div class="container">
         <div class="banner_main d-flex flex-column gap-5 align-self-center">
             <h1 class="display-1 fw-3 fw-semibold ">Компьютерный клуб в Уфе</h1>
