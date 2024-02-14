@@ -38,4 +38,8 @@ class MainController extends Controller
         $places = places::all();
         return view('placees', ['place' => $places]);
     }
+
+    public function booking_Create() {
+        $
+    }
 }

@@ -46,4 +46,9 @@ Route::get('/admin/editplaces', [AdminController::class, 'edit_places' ]); //с�
 Route::post('/edit_places_validate', [AdminController::class, 'edit_places_validate' ]); //функция добавление места
 Route::get('/{id}/delete_places', [AdminController::class, 'delete_places' ]); //страница добавление места
 
-Route::get('placees', [MainController::class, 'placees_view']);
+//Бронирование:
+Route::get('placees', [MainController::class, 'placees_view']); //открытие страница со всеми местами
+Route::post('places_id', [MainController::class, 'placees_view'])->name('places_id'); //передача id  в определенное модальное окно
+Route::post('/{id}/booking_Create', [MainController::class, 'booking_Create']); //оформление бронирования
+
+
