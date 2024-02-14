@@ -125,6 +125,25 @@ footer {
     .img-container {
         width: 100% !important;
     }
+
+    .section_back {
+        background-image: url('/img/fon2sec.png');
+        background-size: 1000px 800px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .form {
+        min-width: 90%;
+    }
+
+    .personal-settings {
+        min-width: 100%;
+    }
+
+    .table-responsive {
+        min-width: 100%;
+    }
 }
 
 @media (min-width: 767.98px) {

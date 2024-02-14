@@ -13,28 +13,31 @@
 <body>
     <div class="container d-flex flex-wrap gap-3 mt-5">
         <x-admin.menu></x-admin.menu>
-        <table class="table table-dark table-striped" style="max-width: 80%">
-            <thead>
-                <tr>
-                    <th scope="col">Название тарифа</th>
-                    <th scope="col">Конфигурация пк</th>
-                    <th scope="col">Количество мест</th>
-                    <th scope="col">Стоимость/час</th>
+        <div class="table-responsive" style="width: 80%">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Название тарифа</th>
+                        <th scope="col">Конфигурация пк</th>
+                        <th scope="col">Количество мест</th>
+                        <th scope="col">Стоимость/час</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($tariff as $tariffs)
-                <tr>
-                    <td>{{$tariffs->title_tariff}}</td>
-                    <td>{{$tariffs->config_id}}</td>
-                    <td>Otto</td>
-                    <td>{{$tariffs->cost}}</td>
-                    <td><a href="/admin/{{$tariffs->id}}/edit" class="btn btn-warning">Изменить</a></td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($tariff as $tariffs)
+                        <tr>
+                            <td>{{ $tariffs->title_tariff }}</td>
+                            <td>{{ $tariffs->config_id }}</td>
+                            <td>Otto</td>
+                            <td>{{ $tariffs->cost }}</td>
+                            <td><a href="/admin/{{ $tariffs->id }}/edit" class="btn btn-warning">Изменить</a></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </body>
 
