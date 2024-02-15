@@ -36,7 +36,7 @@ class MainController extends Controller
     }
 
     public function placees_view(){
-        $places = places::all();
+        $places = places::with('bookings_id')->get();
         return view('placees', ['place' => $places]);
     }
 
@@ -63,6 +63,6 @@ class MainController extends Controller
         } else {
             return redirect()->back()->with('error', 'Бронирование не удалось!');
         }
-        
+
     }
 }

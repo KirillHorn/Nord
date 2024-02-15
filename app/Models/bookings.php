@@ -16,4 +16,8 @@ class bookings extends Model
         'status_id',
         'user_id',
     ];
+
+    public function places() {
+        return $this->belongsTo(places::class, 'place_id');
+    }
 }

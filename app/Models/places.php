@@ -21,5 +21,8 @@ class places extends Model
     public function tariff() {
         return $this->belongsTo(tariffs::class, 'tariff_id', 'id');
     }
+    public function bookings_id() {
+        return $this->hasOne(bookings::class, 'place_id');
+    }
 
 }

@@ -8,6 +8,8 @@ use App\Models\places;
 use App\Models\bookings;
 use Carbon\Carbon;
 
+use Illuminate\Console\Scheduling\Schedule;
+
 
 class UpdateStatus extends Command
 {
@@ -30,19 +32,17 @@ class UpdateStatus extends Command
      */
     public function handle()
     {
-        $newStatusId =1;
-        $places = places::where('status', '!=', $desiredStatusId)
-        ->where('update_at', '<=', Carbon::now())
-        ->get();
+        $bookings = bookings::where('end_time', '<=', Carbon::now())->get();
 
-        foreach ($places as $placess) {
-        // Логика обновления статуса
-        $newStatusId=1;
-        $placess->status = $newStatusId;
-        $placess->save();
+        $this->info($bookings);
+        foreach ($bookings as $booking) {
+            $place_id = $booking->place_id;
+            $place = places::find($place_id)->get();
+            $place->status = 1;
+            $place->save();
         }
-        $this->info('Booking statuses updated successfully.');
-        }
+        $this->info('Places statuses updated successfully.');
+    }
 
 
 }

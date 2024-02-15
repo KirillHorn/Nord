@@ -27,9 +27,9 @@
         </div>
     </div>
 </section>
-<section>
+<section style="margin-top: 20px">
     <div class="container">
-        <h1 style="margin-left: 80px;">Тарифы</h1>
+        <h1 class="text-center">Тарифы</h1>
         <div class="info-block d-flex justify-content-evenly flex-wrap ">
             @forelse($tariff as $tariffs)
                 <div class="info-item">

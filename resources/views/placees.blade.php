@@ -5,22 +5,28 @@
         <table class="table table-dark table-striped" style="max-width: 100%">
             <thead>
                 <tr>
-                    <th scope="col">Номер места</th>
-                    <th scope="col">Тариф</th>
-                    <th scope="col">Статус</th>
+                    <th scope="col"  class="text-center">Номер места</th>
+                    <th scope="col"  class="text-center">Тариф</th>
+                    <th scope="col" class="text-center">Статус</th>
+                    <th scope="col" class="text-center">Бронировать/Время</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach ($place as $places)
+            @forelse ($place as $places)
                 <tr>
 
-                    <th>{{$places->number_place}}</th>
-                    <td>{{$places->tariff->title_tariff}}/{{$places->tariff->cost}} руб</td>
+                    <th  class="text-center">{{$places->number_place}}</th>
+                    <td  class="text-center">{{$places->tariff->title_tariff}}/{{$places->tariff->cost}} руб</td>
                     @if ($places->status == '1')
-                    <td class="text-warning">{{$places->status_place->title}}</td>
+                    <td class="text-warning text-center" >{{$places->status_place->title}}</td>
                     <td><a href="{{route('places_id', $places->id)}}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $places->id}}" data-bs-whatever="@getbootstrap">Забронировать</a></td>
                     @else
-                    <td class="text-danger">{{$places->status_place->title}}</td>
+                    <td class="text-danger text-center">{{$places->status_place->title}}</td>
+                    <td><p class=" btn-warning">Забронировать</p></td>
+
+
+{{--
+                    <td class="text-warning text-center">{{$places->bookings_id->end_time->diffForHumans()}}</td> --}}
                     @endif
 
                 </tr>
@@ -51,17 +57,19 @@
                               <label for="recipient-name" class="col-form-label">До скольки</label>
                               <input type="time" class="form-control" id="recipient-name" name="end_time">
                             </div>
-                          <button>забронировать</button>
+
+                          <div class="modal-footer" style="border-top:none;">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button  class="btn btn-secondary" >забронировать</button>
+                          </div>
                        </form>
                         </div>
-                        <!-- <div class="modal-footer" style="border-top:none;">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-
-                        </div> -->
+                        <!-- -->
                       </div>
                     </div>
                   </div>
-                @endforeach
+                  @empty
+                @endforelse
             </tbody>
         </table>
     </div>
