@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\places;
+use App\Models\bookings;
 use App\Models\tariffs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,29 @@ class MainController extends Controller
         return view('placees', ['place' => $places]);
     }
 
-    public function booking_Create() {
-        $
+    public function booking_Create($id, Request $request) {
+        $time=$request->all();
+        $booking = bookings::create([
+            "place_id" => $id,
+            "beginning_time" =>  $time['beginning_time'],
+            "end_time" =>  $time['end_time'],
+            "status_id" => 1,
+            "user_id" => Auth::user()->id,
+        ]);
+
+        if ($booking) {
+            $places=places::find($booking->place_id);
+           $places-> fill([
+            'status' => 2,
+           ]);
+           $places-> save();
+        }
+
+        if ($booking) {
+            return redirect()->back()->with('success', 'Вы забронировали место!');
+        } else {
+            return redirect()->back()->with('error', 'Бронирование не удалось!');
+        }
+        
     }
 }

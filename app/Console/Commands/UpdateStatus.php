@@ -30,14 +30,16 @@ class UpdateStatus extends Command
      */
     public function handle()
     {
-        $bookings = Booking::where('status_id', '!=', $desiredStatusId)
+        $newStatusId =1;
+        $places = places::where('status', '!=', $desiredStatusId)
         ->where('update_at', '<=', Carbon::now())
         ->get();
 
-        foreach ($bookings as $booking) {
+        foreach ($places as $placess) {
         // Логика обновления статуса
-        $booking->status_id = $newStatusId;
-        $booking->save();
+        $newStatusId=1;
+        $placess->status = $newStatusId;
+        $placess->save();
         }
         $this->info('Booking statuses updated successfully.');
         }

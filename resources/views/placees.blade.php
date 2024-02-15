@@ -16,12 +16,13 @@
 
                     <th>{{$places->number_place}}</th>
                     <td>{{$places->tariff->title_tariff}}/{{$places->tariff->cost}} руб</td>
-                    @if ($places->status_place->title = 'Свободный')
+                    @if ($places->status == '1')
                     <td class="text-warning">{{$places->status_place->title}}</td>
+                    <td><a href="{{route('places_id', $places->id)}}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $places->id}}" data-bs-whatever="@getbootstrap">Забронировать</a></td>
                     @else
                     <td class="text-danger">{{$places->status_place->title}}</td>
                     @endif
-                    <td><a href="{{route('places_id', $places->id)}}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $places->id}}" data-bs-whatever="@getbootstrap">Забронировать</a></td>
+
                 </tr>
                 <div class="modal fade" id="exampleModal{{$places->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" >
@@ -40,20 +41,23 @@
 
                           </div>
                           <form method="POST" action="/{{$places->id}}/booking_Create">
+                          @csrf
                             <div class="mb-3">
                               <label for="recipient-name" class="col-form-label">Со скольки</label>
-                              <input type="time" class="form-control" id="recipient-name">
+                              <input type="time" class="form-control" id="recipient-name" name="beginning_time">
+          </div>
                             </div>
                             <div class="mb-3">
                               <label for="recipient-name" class="col-form-label">До скольки</label>
-                              <input type="time" class="form-control" id="recipient-name">
+                              <input type="time" class="form-control" id="recipient-name" name="end_time">
                             </div>
-                          </form>
+                          <button>забронировать</button>
+                       </form>
                         </div>
-                        <div class="modal-footer" style="border-top:none;">
+                        <!-- <div class="modal-footer" style="border-top:none;">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                          <button type="button" class="btn btn-warning">Забронироввать</button>
-                        </div>
+
+                        </div> -->
                       </div>
                     </div>
                   </div>

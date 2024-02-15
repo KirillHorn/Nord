@@ -17,6 +17,7 @@ return new class extends Migration
             $table->time('beginning_time');
             $table->time('end_time');
             $table->foreignId('status_id')->references('id')->on('statuses');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

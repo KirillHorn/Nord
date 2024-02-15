@@ -17,17 +17,18 @@
         <form>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Со скольки</label>
-            <input type="date" class="form-control" id="recipient-name">
+            <input type="date" class="form-control" id="recipient-name" name="beginning_time">
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">До скольки</label>
-            <input type="date" class="form-control" id="recipient-name">
+            <input type="date" class="form-control" id="recipient-name" name="end_time">
           </div>
-        </form>
+       
       </div>
       <div class="modal-footer" style="border-top:none;">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-warning">Забронироввать</button>
+        <input type="button" class="btn btn-warning">Забронироввать</button>
+        </form>
       </div>
     </div>
   </div>
