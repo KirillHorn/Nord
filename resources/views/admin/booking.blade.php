@@ -16,19 +16,21 @@
         <table class="table table-dark table-striped" style="max-width: 80%">
             <thead>
                 <tr>
-                    <th scope="col">Название тарифа</th>
-                    <th scope="col">Почта</th>
-                    <th scope="col">Имя</th>
-                    <th scope="col">Оставшееся время</th>
+                    <th scope="col" class="text-center">Номер места</th>
+                    <th scope="col" class="text-center">Время брони</th>
+                    <th scope="col" class="text-center">Тариф/цена</th>
+                    <th scope="col" class="text-center">Имя клиента</th>
                 </tr>
             </thead>
             <tbody>
+            @foreach ( $booking as $bookings)
                 <tr>
-                    <th>ntcn</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
+                <th class="text-center">{{$bookings->place_id}}</th>
+                    <td class="text-center">{{ $bookings->beginning_time}} - {{$bookings->end_time}}</td>
+                    <td class="text-center">{{$bookings->places->tariff->title_tariff}}/{{$bookings->places->tariff->cost }} рублей</td>
+                    <th class="text-center">{{$bookings->users_id->name}}</th>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

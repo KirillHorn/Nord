@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\places;
 use App\Models\bookings;
 use App\Models\tariffs;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +21,9 @@ class MainController extends Controller
     }
     public function bookingpersonal()
     {
-        return view('/bookingpersonal');
+        $author=Auth::user()->id;
+        $booking=bookings::where('user_id' ,$author )->get();
+        return view('/bookingpersonal', ['booking' => $booking]);
     }
 
     public function add_money()

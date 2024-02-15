@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\configs;
 use App\Models\tariffs;
 use App\Models\places;
+use App\Models\bookings;
 use App\Models\statusplases;
 use Illuminate\Http\Request;
 
@@ -108,7 +109,8 @@ class AdminController extends Controller
     }
     public function booking() //страница забронированных мест
     {
-        return view('admin.booking');
+        $booking=bookings::all();
+        return view('admin.booking', ["booking" => $booking]);
     }
 
 }

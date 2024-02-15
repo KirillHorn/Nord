@@ -19,14 +19,12 @@
                     <td  class="text-center">{{$places->tariff->title_tariff}}/{{$places->tariff->cost}} руб</td>
                     @if ($places->status == '1')
                     <td class="text-warning text-center" >{{$places->status_place->title}}</td>
-                    <td><a href="{{route('places_id', $places->id)}}" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $places->id}}" data-bs-whatever="@getbootstrap">Забронировать</a></td>
+                    <td class="text-center"><a href="{{route('places_id', $places->id)}}" type="button"  class="btn btn-warning "  data-bs-toggle="modal" data-bs-target="#exampleModal{{ $places->id}}" data-bs-whatever="@getbootstrap">Забронировать</a></td>
                     @else
                     <td class="text-danger text-center">{{$places->status_place->title}}</td>
-                    <td><p class=" btn-warning">Забронировать</p></td>
+                    <td><p class=" text-warning text-center">Забронирован до {{$places->bookings_id->end_time}}</p></td>
 
 
-{{--
-                    <td class="text-warning text-center">{{$places->bookings_id->end_time->diffForHumans()}}</td> --}}
                     @endif
 
                 </tr>
@@ -51,8 +49,8 @@
                             <div class="mb-3">
                               <label for="recipient-name" class="col-form-label">Со скольки</label>
                               <input type="time" class="form-control" id="recipient-name" name="beginning_time">
-          </div>
-                            </div>
+                           </div>
+                          
                             <div class="mb-3">
                               <label for="recipient-name" class="col-form-label">До скольки</label>
                               <input type="time" class="form-control" id="recipient-name" name="end_time">
@@ -60,7 +58,7 @@
 
                           <div class="modal-footer" style="border-top:none;">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                            <button  class="btn btn-secondary" >забронировать</button>
+                            <button  class="btn btn-warning" >Забронировать</button>
                           </div>
                        </form>
                         </div>

@@ -20,4 +20,7 @@ class bookings extends Model
     public function places() {
         return $this->belongsTo(places::class, 'place_id');
     }
+    public function users_id() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

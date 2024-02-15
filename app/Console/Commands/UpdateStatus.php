@@ -18,7 +18,7 @@ class UpdateStatus extends Command
      *
      * @var string
      */
-    protected $signature = 'places:update-status';
+    protected $signature = 'booking:update-status';
 
     /**
      * The console command description.
@@ -33,11 +33,10 @@ class UpdateStatus extends Command
     public function handle()
     {
         $bookings = bookings::where('end_time', '<=', Carbon::now())->get();
-
         $this->info($bookings);
         foreach ($bookings as $booking) {
             $place_id = $booking->place_id;
-            $place = places::find($place_id)->get();
+            $place = places::find($place_id);
             $place->status = 1;
             $place->save();
         }
