@@ -23,5 +23,6 @@
                 @endforeach
             </tbody>
         </table>
+       <div class=" d-flex " style="margin-left:70px;"> {{ $booking->withQueryString()->links('pagination::bootstrap-5') }} </div> 
     </div>
 </body>
