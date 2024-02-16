@@ -31,12 +31,6 @@ class MainController extends Controller
         return view('/add_money');
     }
 
-    public function balance(Request $request)
-    {
-        Auth::user()->balance += $request['balance'];
-        Auth::user()->save();
-        return redirect('/')->with('success', 'Вы пополнили баланс');
-    }
 
     public function placees_view(){ 
         $currentTime = now()->setTimezone('Asia/Yekaterinburg');;
@@ -45,7 +39,22 @@ class MainController extends Controller
         return view('placees', ['place' => $places, 'currentTime' => $currentTime ]);
     }
 
+    public function balance(Request $request)
+    {
+        Auth::user()->balance += $request['balance'];
+        Auth::user()->save();
+        return redirect('/')->with('success', 'Вы пополнили баланс');
+    }
+
     public function booking_Create($id, Request $request) {
+
+    //     $balance = Auth::user()->balance;
+    //     $tariff=places::find($id);
+    //     $cost=tariffs::find($tariff);
+    //    $costTariff=$cost->cost;
+     
+
+        dd($costTariff);
         $time=$request->all();
         $booking = bookings::create([
             "place_id" => $id,
@@ -55,6 +64,9 @@ class MainController extends Controller
             "user_id" => Auth::user()->id,
         ]);
 
+     
+        // $cost=places::find($)
+            $summ = $balance - places::find(tariff_id);
         if ($booking) {
             $places=places::find($booking->place_id);
            $places-> fill([
