@@ -13,26 +13,29 @@
 <body>
     <div class="container d-flex flex-wrap gap-3 mt-5">
         <x-admin.menu></x-admin.menu>
-        <table class="table table-dark table-striped" style="max-width: 80%">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">Номер места</th>
-                    <th scope="col" class="text-center">Время брони</th>
-                    <th scope="col" class="text-center">Тариф/цена</th>
-                    <th scope="col" class="text-center">Имя клиента</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ( $booking as $bookings)
-                <tr>
-                <th class="text-center">{{$bookings->place_id}}</th>
-                    <td class="text-center">{{ $bookings->beginning_time}} - {{$bookings->end_time}}</td>
-                    <td class="text-center">{{$bookings->places->tariff->title_tariff}}/{{$bookings->places->tariff->cost }} рублей</td>
-                    <th class="text-center">{{$bookings->users_id->name}}</th>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">Номер места</th>
+                        <th scope="col" class="text-center">Время брони</th>
+                        <th scope="col" class="text-center">Тариф/цена</th>
+                        <th scope="col" class="text-center">Имя клиента</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach ( $booking as $bookings)
+                    <tr>
+                    <th class="text-center">{{$bookings->place_id}}</th>
+                        <td class="text-center">{{ $bookings->beginning_time}} - {{$bookings->end_time}}</td>
+                        <td class="text-center">{{$bookings->places->tariff->title_tariff}}/{{$bookings->places->tariff->cost }} рублей</td>
+                        <th class="text-center">{{$bookings->users_id->name}}</th>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </body>
 

@@ -67,10 +67,10 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">До скольки</label>
-                        <div class="range">
-                            <input type="range" min="1" max="12" value="1" class="range-input" />
-                            <div class="value2">0</div>
+                        <label for="recipient-name" class="col-form-label">На сколько часов</label>
+                        <div class="range" id="rangeContainer">
+                            <input type="range" id="rangeInput" min="1" max="12" step="1" value="1" oninput="updateLabel(this.value)" class="range-input" />
+                            <div class="value2" id="rangeValue">1</div>
                         </div>
                     </div>
 
@@ -87,21 +87,9 @@
 </div>
 
 <script>
-    let sliderEl = document.querySelectorAll(".range-input")
-    const sliderValue = document.querySelectorAll(".value2")
-console.log(sliderEl);
-    sliderEl.forEach(el => {
-        el.addEventListener("change", (event) => {
-            console.log(1);
-            const tempSliderValue = event.target.value;
-            sliderValue.textContent = tempSliderValue;
-
-            const progress = (tempSliderValue / sliderEl.max) * 100;
-
-            sliderEl.style.background =
-                `linear-gradient(to right, #f50 ${progress}%, #ccc ${progress}%)`;
-        })
-    });
+    function updateLabel(value) {
+        document.getElementById("rangeValue").innerText = value;
+    }
 </script>
 
 </body>
