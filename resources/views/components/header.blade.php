@@ -52,7 +52,10 @@
 
         </div>
       </div>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     </div>
 </header>
 

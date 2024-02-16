@@ -32,7 +32,10 @@ class UpdateStatus extends Command
      */
     public function handle()
     {
-        $bookings = bookings::where('end_time', '<=', Carbon::now())->get();
+        $time=Carbon::now()->setTimezone('Asia/Yekaterinburg')->format("H:i:s");
+
+        $bookings = bookings::where('end_time', '>=', $time)->get();
+
         $this->info($bookings);
         foreach ($bookings as $booking) {
             $place_id = $booking->place_id;
