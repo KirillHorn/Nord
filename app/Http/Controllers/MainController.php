@@ -38,9 +38,11 @@ class MainController extends Controller
         return redirect('/')->with('success', 'Вы пополнили баланс');
     }
 
-    public function placees_view(){
+    public function placees_view(){ 
+        $currentTime = now()->setTimezone('Asia/Yekaterinburg');;
+
         $places = places::with('bookings_id')->get();
-        return view('placees', ['place' => $places]);
+        return view('placees', ['place' => $places, 'currentTime' => $currentTime ]);
     }
 
     public function booking_Create($id, Request $request) {

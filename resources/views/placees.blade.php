@@ -1,5 +1,7 @@
 <x-header></x-header>
 {{-- <x-modal/> --}}
+
+
     <div class="container d-flex flex-wrap gap-3 px-4 mt-3">
 
         <table class="table table-dark table-striped" style="max-width: 100%">
@@ -48,7 +50,7 @@
                           @csrf
                             <div class="mb-3">
                               <label for="recipient-name" class="col-form-label">Со скольки</label>
-                              <input type="time" class="form-control" id="recipient-name" name="beginning_time">
+                              <input type="time" class="form-control" id="timeInput" name="beginning_time" value="{{$currentTime->format('H:i')}}" >
                            </div>
                           
                             <div class="mb-3">
@@ -71,5 +73,22 @@
             </tbody>
         </table>
     </div>
+    <script>
+    var timeInput = document.getElementById('timeInput');
+
+    // Добавляем обработчик события change
+    timeInput.addEventListener('change', function() {
+        var selectedTime = new Date('2000-01-01 ' + this.value);
+        var currentTime = new Date();
+
+        // Если выбранное время меньше текущего времени, устанавливаем текущее время
+        if (selectedTime < currentTime) {
+            var hours = currentTime.getHours().toString().padStart(2, '0');
+            var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+            this.value = hours + ':' + minutes;
+        }
+    });
+</script>
 
 </body>
+
