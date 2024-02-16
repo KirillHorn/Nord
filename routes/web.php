@@ -49,6 +49,6 @@ Route::get('/{id}/delete_places', [AdminController::class, 'delete_places' ]); /
 //Бронирование:
 Route::get('placees', [MainController::class, 'placees_view']); //открытие страница со всеми местами
 Route::post('places_id', [MainController::class, 'placees_view'])->name('places_id'); //передача id  в определенное модальное окно
-Route::post('/{id}/booking_Create', [MainController::class, 'booking_Create']); //оформление бронирования
+Route::post('/booking_Create', [MainController::class, 'booking_Create']); //оформление бронирования
 
 

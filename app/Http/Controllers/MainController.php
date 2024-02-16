@@ -30,11 +30,8 @@ class MainController extends Controller
     {
         return view('/add_money');
     }
-
-
     public function placees_view(){
         $currentTime = now()->setTimezone('Asia/Yekaterinburg');
-
         $places = places::with('bookings_id')->get();
         return view('placees', ['place' => $places, 'currentTime' => $currentTime ]);
     }
@@ -46,13 +43,13 @@ class MainController extends Controller
         return redirect('/')->with('success', 'Вы пополнили баланс');
     }
 
-    public function booking_Create($id, Request $request) {
+    public function booking_Create( Request $request) {
         $time=$request->all();
         $timeend = $time['beginning_time']; //со скольки
         $hours=$time['end_time']; //количество часов
         $endTime = date("H:i", strtotime("$hours hour", strtotime($timeend))); //конечное время
         $balance = Auth::user()->balance;
-        $tariff=places::find($id);
+        $tariff=places::find($time['place_id']);
         $tariffCost=tariffs::find($tariff->tariff_id);
         $cost = $tariffCost->cost;
         $costHours=$cost*$hours;
@@ -64,7 +61,7 @@ class MainController extends Controller
             return redirect()->back()->with('error', 'У вас недостаточно средств!');
         }
         $booking = bookings::create([
-            "place_id" => $id,
+            "place_id" => $time['place_id'],
             "beginning_time" =>  $time['beginning_time'],
             "end_time" =>  $endTime ,
             "status_id" => 1,

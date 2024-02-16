@@ -14,17 +14,17 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($place as $places)
+            @foreach ($place as $places)
                 <tr>
 
                     <th class="text-center">{{ $places->number_place }}</th>
                     <td class="text-center">{{ $places->tariff->title_tariff }}/{{ $places->tariff->cost }} руб</td>
                     @if ($places->status == '1')
                         <td class="text-warning text-center">{{ $places->status_place->title }}</td>
-                        <td class="text-center"><a href="{{ route('places_id', $places->id) }}" type="button"
-                                class="btn btn-warning " data-bs-toggle="modal"
-                                data-bs-target="#exampleModal{{ $places->id }}"
-                                data-bs-whatever="@getbootstrap">Забронировать</a></td>
+                        <td class="text-center"><button  type="button"
+                                class="btn btn-warning button_book " data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                data-bs-whatever="@getbootstrap" data-place="{{$places->id}}"  data-tariff="{{$places->tariff->title_tariff }}"  data-cost="{{$places->tariff->cost}}">Забронировать</button></td>
                     @else
                         <td class="text-danger text-center">{{ $places->status_place->title }}</td>
                         <td>
@@ -34,8 +34,13 @@
                     @endif
 
                 </tr>
-                <div class="modal fade" id="exampleModal{{ $places->id }}" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+             
+           
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: rgb(33, 37, 41); color:#ffc107;">
             <div class="modal-header" style="border-bottom:none;">
@@ -46,20 +51,20 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <div>
-                        <p>Номер места: {{ $places->number_place }}</p>
-                        <p>Тариф: {{ $places->tariff->title_tariff }}</p>
-                        <p>Цена: {{ $places->tariff->cost }}</p>
+                        <p id="modalplace"></p>
+                        <p id="modalTariff"></p>
+                        <p id="modalcost"></p>
                     </div>
 
                 </div>
-                <form method="POST" action="/{{ $places->id }}/booking_Create">
+                <form method="POST" action="/booking_Create">
                     @csrf
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Со скольки</label>
                         <input type="time" class="form-control" id="timeInput" name="beginning_time"
                             value="{{ $currentTime->format('H:i') }}">
                     </div>
-
+                    <input type="hidden" name="place_id" id="modalInputPlace">
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">На сколько часов</label>
                         <div class="range" id="rangeContainer">
@@ -80,17 +85,36 @@
     </div>
 </div>
 
-            @empty
-            @endforelse
-        </tbody>
-    </table>
-</div>
 
 
 <script>
     function updateLabel(value) {
         document.getElementById("rangeValue").innerText = value;
     }
+    document.addEventListener("DOMContentLoaded", function() {
+            var buttons = document.querySelectorAll(".button_book");
+            buttons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    var place = button.dataset.place;
+                    var tariff = button.dataset.tariff;
+                    var cost = button.dataset.cost;
+                    
+                    var placeString = "Место: " + place;
+                    var tariffString = "Тариф: " + tariff;
+                    var costString = "Цена: " + cost;
+
+                    document.getElementById("modalplace").innerHTML = placeString;
+                    document.getElementById("modalTariff").innerHTML = tariffString;
+                    document.getElementById("modalcost").innerHTML = costString;
+
+
+                    document.getElementById("modalInputPlace").value = place;
+           
+                    var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+                    myModal.show();
+                });
+            });
+        });
 </script>
 
 </body>
