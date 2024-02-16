@@ -48,25 +48,40 @@ class MainController extends Controller
 
     public function booking_Create($id, Request $request) {
 
-    //     $balance = Auth::user()->balance;
-    //     $tariff=places::find($id);
-    //     $cost=tariffs::find($tariff);
-    //    $costTariff=$cost->cost;
-     
-
-        dd($costTariff);
         $time=$request->all();
+         $timeend = $time['beginning_time'];
+        $endTime = date("H:i", strtotime("+1 hour ", strtotime($timeend)));
+
+        $balance = Auth::user()->balance;
+        $tariff=places::find($id);
+        $tariffCost=tariffs::find($tariff->tariff_id);
+        $cost = $tariffCost->cost;
+
+
+        if ($balance >= $cost) {
+            $finallyCost= $balance - $cost;
+            $user = Auth::user();
+            $user->update(['balance' => $finallyCost]);
+
+        } else {
+            return redirect()->back()->with('error', 'У вас недостаточно средств!');
+        }
+
+    //    $costTariff=$cost->cost;
+
+
+
         $booking = bookings::create([
             "place_id" => $id,
             "beginning_time" =>  $time['beginning_time'],
-            "end_time" =>  $time['end_time'],
+            "end_time" =>  $endTime ,
             "status_id" => 1,
             "user_id" => Auth::user()->id,
         ]);
 
-     
+
         // $cost=places::find($)
-            $summ = $balance - places::find(tariff_id);
+
         if ($booking) {
             $places=places::find($booking->place_id);
            $places-> fill([

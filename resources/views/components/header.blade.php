@@ -16,14 +16,20 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-white">Главная</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">О нас</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Фото</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Цены</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Контакты</a></li>
+          <li><a href="/" class="nav-link px-2 text-white">Главная</a></li>
+          <li><a href="#part1" class="nav-link px-2 text-white">О нас</a></li>
+          <li><a href="#part2" class="nav-link px-2 text-white">Цены</a></li>
+
           @auth
+
+            @if (Auth::user()->id_role == 1)
+
+             @else
+
+            <li><a href="/add_money" class="nav-link text-warning">Баланс: {{Auth::user()->balance}}руб</a></li>
             <li><a href="/placees" class="nav-link px-2 text-white">Забронировать</a></li>
-            <li><a href="/add_money" class="nav-link text-warning">Баланс: {{Auth::user()->balance}}р</a></li>
+        @endif
+
           @endauth
         </ul>
 
@@ -46,16 +52,12 @@
           <a href="/sign_out" role="button" class="btn btn-warning">Выход</a>
           </div>
         @endif
-        
+
           @endauth
 
 
         </div>
       </div>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     </div>
 </header>
 

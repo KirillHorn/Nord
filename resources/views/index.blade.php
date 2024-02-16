@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <x-header />
 <section class="section_back container-fluid mt-2">
     <div class="container">
@@ -7,10 +6,22 @@
             <p class="fs-3">Nord в Уфе - это лучший компьютерный клуб в Уфе, с топовым железом, девайсами и удобным
                 креслами Cougar!
                 Погрузитесь в другую реальность в компьютерном клубе Nord </p>
+                @auth
+
+
+                @if (Auth::user()->id_role == 1)
+
+                @else
             <a class="btn btn-warning" href="/placees">Забронировать</a>
+            @endif
+            @endauth
+
+            @guest
+            <a class="btn btn-warning" href="/sign_in">Забронировать</a>
+            @endguest
         </div>
 </section>
-<section>
+<section id="part1">
     <h2 class="info_sait text-center">О нас</h2>
     <div class="container d-flex flex-wrap gap-2">
         <div class="img-container">
@@ -26,27 +37,9 @@
                 Погрузитесь в другую реальность в компьютерном клубе Nord!
             </p>
         </div>
-=======
-
-<x-header/>
-        <section  class="section_back">
-            <div class="container">
-                <div  class="banner_main d-flex flex-column gap-5 align-self-center" >
-
-                 <h1 class="display-1 fw-3 fw-semibold" >Компьютерный клуб в Уфе</h1>
-
-                 <p>Nord в Уфе - это лучший компьютерный клуб в Уфе, с топовым железом, девайсами и удобным креслами Cougar! Погрузитесь в другую реальность в компьютернрм клубе Nord </p>
-
-                 <a>Забронировать</a>
-
-
-
-            </div>
-        </section>
->>>>>>> Stashed changes
     </div>
 </section>
-<section style="mt-2">
+<section style="mt-2" id="part2">
     <div class="container">
         <h1 class="text-center">Тарифы</h1>
         <div class="info-block d-flex justify-content-evenly flex-wrap ">
@@ -69,10 +62,7 @@
         </div>
     </div>
 </section>
-<x-footer />
+<x-footer id="part3" />
 </body>
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 </html>

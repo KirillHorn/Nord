@@ -19,7 +19,7 @@
                     <tr>
                         <th scope="col">Название тарифа</th>
                         <th scope="col">Конфигурация пк</th>
-                        <th scope="col">Количество мест</th>
+
                         <th scope="col">Стоимость/час</th>
 
                     </tr>
@@ -29,7 +29,7 @@
                         <tr>
                             <td>{{ $tariffs->title_tariff }}</td>
                             <td>{{ $tariffs->config_id }}</td>
-                            <td>Otto</td>
+
                             <td>{{ $tariffs->cost }}</td>
                             <td><a href="/admin/{{ $tariffs->id }}/edit" class="btn btn-warning">Изменить</a></td>
                         </tr>
