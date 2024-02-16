@@ -1,8 +1,8 @@
-<x-links></x-links>
+<x-header></x-header>
 <x-alerts></x-alerts>
 <div class="container">
     <h2 class="text-center text-white">Изменить тариф</h2>
-    <form class="d-flex flex-column gap-3 mt-4 mb-2" method="POST" action="/{{$tariff->id}}/edit_reduct"
+    <form class="d-flex flex-column gap-3 mt-4 mb-2 form" method="POST" action="/{{$tariff->id}}/edit_reduct"
         style="max-width:40%;margin:0 auto">
         @csrf
         <div class="form-group text-white">
