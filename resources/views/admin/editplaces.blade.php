@@ -1,8 +1,8 @@
-<x-links></x-links>
+<x-header></x-header>
 <x-alerts></x-alerts>
-<div class="container">
+<div class="container mt-3">
     <h2 class="text-center text-white">Добавить новое место!</h2>
-    <form class="d-flex flex-column gap-3 mt-4 mb-2" method="POST" action="/edit_places_validate"
+    <form class="d-flex flex-column gap-3 mt-4 mb-2 form" method="POST" action="/edit_places_validate"
         style="max-width:40%;margin:0 auto">
         @csrf
         <div class="form-group text-white">
@@ -27,10 +27,6 @@
                 </div>
             @enderror
         </div>
-
-
-
-
         <button type="submit" class="btn btn-warning">Добавить новое место</button>
     </form>
 </div>

@@ -27,16 +27,14 @@
         </div>
     </div>
 </section>
-<section style="margin-top: 20px">
+<section style="mt-2">
     <div class="container">
         <h1 class="text-center">Тарифы</h1>
         <div class="info-block d-flex justify-content-evenly flex-wrap ">
             @forelse($tariff as $tariffs)
                 <div class="info-item">
                     <h4 class="info-item__title">{{ $tariffs->title_tariff }}</h4>
-                    <!-- /.info-item__title -->
                     <h5 class="info-item__subtitle">Цена: {{ $tariffs->cost }} руб/час </h5>
-                    <!-- /.info-item__subtitle -->
                     <h5 class="info-item__subtitle">Конфигурация: </h5>
                     <p><span class="fw-semibold">Процессор</span> – {{ $tariffs->configs->CPU }}</p>
                     <p><span class="fw-semibold">Оперативная память</span> – {{ $tariffs->configs->RAM }}</p>

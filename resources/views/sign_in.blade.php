@@ -1,4 +1,5 @@
 <x-header></x-header>
+<x-alerts></x-alerts>
 <div class="container mt-3">
     <h2 class="text-center text-white">Авторизация</h2>
     <form class="d-flex flex-column gap-3 mt-4 mb-2 form" method="POST" action="/sign_in_validate"

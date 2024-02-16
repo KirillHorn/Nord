@@ -13,11 +13,9 @@
 <body>
     <div class="container d-flex flex-wrap gap-3 mt-5">
         <x-admin.menu></x-admin.menu>
-
         <div style="width: 80%;">
-            <a href="/admin/editplaces" class=" text-center  btn-warning add_places">Добавить места</a>
             <div class="table-responsive" style="width: 80%">
-                <table class="table table-dark table-striped" style="margin-top: 20px;">
+                <table class="table table-dark table-striped">
                     <thead>
                         <tr>
                             <th scope="col">Номер места</th>
@@ -36,6 +34,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    <caption><a href="/admin/editplaces" class=" text-center  btn-warning add_places">Добавить места</a></caption>
                 </table>
             </div>
         </div>
