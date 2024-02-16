@@ -19,15 +19,11 @@
           <li><a href="/" class="nav-link px-2 text-white">Главная</a></li>
           <li><a href="#part1" class="nav-link px-2 text-white">О нас</a></li>
           <li><a href="#part2" class="nav-link px-2 text-white">Цены</a></li>
-
           @auth
-
             @if (Auth::user()->id_role == 1)
-
              @else
-
+             <li><a href="/placees" class="nav-link px-2 text-white">Забронировать</a></li>
             <li><a href="/add_money" class="nav-link text-warning">Баланс: {{Auth::user()->balance}}руб</a></li>
-            <li><a href="/placees" class="nav-link px-2 text-white">Забронировать</a></li>
         @endif
 
           @endauth

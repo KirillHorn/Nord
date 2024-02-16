@@ -47,30 +47,22 @@ class MainController extends Controller
     }
 
     public function booking_Create($id, Request $request) {
-
         $time=$request->all();
-         $timeend = $time['beginning_time'];
-        $endTime = date("H:i", strtotime("+1 hour ", strtotime($timeend)));
-
+        $timeend = $time['beginning_time']; //со скольки
+        $hours=$time['end_time']; //количество часов
+        $endTime = date("H:i", strtotime("$hours hour", strtotime($timeend))); //конечное время
         $balance = Auth::user()->balance;
         $tariff=places::find($id);
         $tariffCost=tariffs::find($tariff->tariff_id);
         $cost = $tariffCost->cost;
-
-
-        if ($balance >= $cost) {
-            $finallyCost= $balance - $cost;
+        $costHours=$cost*$hours;
+        if ($balance >=  $costHours) {
+            $finallyCost= $balance -  $costHours;
             $user = Auth::user();
             $user->update(['balance' => $finallyCost]);
-
         } else {
             return redirect()->back()->with('error', 'У вас недостаточно средств!');
         }
-
-    //    $costTariff=$cost->cost;
-
-
-
         $booking = bookings::create([
             "place_id" => $id,
             "beginning_time" =>  $time['beginning_time'],
@@ -78,10 +70,6 @@ class MainController extends Controller
             "status_id" => 1,
             "user_id" => Auth::user()->id,
         ]);
-
-
-        // $cost=places::find($)
-
         if ($booking) {
             $places=places::find($booking->place_id);
            $places-> fill([
@@ -89,7 +77,6 @@ class MainController extends Controller
            ]);
            $places-> save();
         }
-
         if ($booking) {
             return redirect()->back()->with('success', 'Вы забронировали место!');
         } else {

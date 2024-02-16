@@ -34,13 +34,7 @@
                     @endif
 
                 </tr>
-
-            @empty
-            @endforelse
-        </tbody>
-    </table>
-</div>
-<div class="modal fade" id="exampleModal{{ $places->id }}" tabindex="-1"
+                <div class="modal fade" id="exampleModal{{ $places->id }}" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: rgb(33, 37, 41); color:#ffc107;">
@@ -69,7 +63,7 @@
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">На сколько часов</label>
                         <div class="range" id="rangeContainer">
-                            <input type="range" id="rangeInput" min="1" max="12" step="1" value="1" oninput="updateLabel(this.value)" class="range-input" />
+                            <input type="range" id="rangeInput" min="1" max="12" step="1" value="1" oninput="updateLabel(this.value)" class="range-input" name="end_time" />
                             <div class="value2" id="rangeValue">1</div>
                         </div>
                     </div>
@@ -85,6 +79,13 @@
         </div>
     </div>
 </div>
+
+            @empty
+            @endforelse
+        </tbody>
+    </table>
+</div>
+
 
 <script>
     function updateLabel(value) {
