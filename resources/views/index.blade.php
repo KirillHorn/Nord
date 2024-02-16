@@ -7,7 +7,7 @@
             <p class="fs-3">Nord в Уфе - это лучший компьютерный клуб в Уфе, с топовым железом, девайсами и удобным
                 креслами Cougar!
                 Погрузитесь в другую реальность в компьютерном клубе Nord </p>
-            <a class="btn btn-warning">Забронировать</a>
+            <a class="btn btn-warning" href="/placees">Забронировать</a>
         </div>
 </section>
 <section>
