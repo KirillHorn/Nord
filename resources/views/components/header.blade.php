@@ -24,7 +24,7 @@
                     @auth
                         @if (Auth::user()->id_role == 1)
                         @else
-                            <li><a href="{{ route('placees', ['sort_order' => 'ASC']) }}"
+                            <li><a href="{{ route('placees', ['sort_order' => '0']) }}"
                                     class="nav-link px-2 text-white">Забронировать</a></li>
                             <li><a href="/add_money" class="nav-link text-warning">Баланс:
                                     {{ Auth::user()->balance }}руб</a></li>

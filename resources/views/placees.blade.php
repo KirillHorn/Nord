@@ -3,11 +3,20 @@
 
 
 <div class="container d-flex flex-wrap gap-3 px-4 mt-3">
-    <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3 gap-3" style="width:auto;height:20%">
+    <!-- <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3 gap-3" style="width:auto;height:20%">
         <a href="{{ route('placees', ['sort_order' => 'asc']) }}" class="text-decoration-none text-white">Сортировка
             Тарифов от А до Я</a>
         <a href="{{ route('placees', ['sort_order' => 'desc']) }}" class="text-decoration-none text-white">Сортировка
             Тарифов от Я до А</a>
+    </div> -->
+    <div class="d-flex flex-column align-items-center" style="width: 100%;">
+    <h3 class="text-warning">Сортировка по тарифам</h3>
+        <div class="personal-settings rounded-1 d-flex  border py-3 px-4 mb-3 gap-3" style="width:auto;">
+            <a href="{{ route('placees', ['sort_order' => '0']) }}" class="text-decoration-none text-white">Все тарифы</a>
+            <a href="{{ route('placees', ['sort_order' => '1']) }}" class="text-decoration-none text-white">Стандарт</a>
+            <a href="{{ route('placees', ['sort_order' => '2']) }}" class="text-decoration-none text-white">Люкс</a>
+            <a href="{{ route('placees', ['sort_order' => '3']) }}" class="text-decoration-none text-white">Прайм</a>
+        </div>
     </div>
     <div class="table-responsive" style="width: 100%">
         <table class="table table-dark table-striped">

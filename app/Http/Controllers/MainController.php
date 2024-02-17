@@ -35,7 +35,13 @@ class MainController extends Controller
     {
         $sortOrder = $request->get('sort_order');
         $currentTime = now()->setTimezone('Asia/Yekaterinburg');
-        $places = places::with('bookings_id', 'tariff')->join('tariffs', 'tariffs.id', '=', 'tariff_id')->orderBy('title_tariff', $sortOrder)->get();
+        // $places = places::with('bookings_id', 'tariff')->join('tariffs', 'tariffs.id', '=', 'tariff_id')->orderBy('title_tariff', $sortOrder)->get();
+        if ($sortOrder == 0 ) {
+        $places = places::with('bookings_id', 'tariff')->join('tariffs', 'tariffs.id', '=', 'tariff_id')->get();
+        }
+        else {
+        $places = places::with('bookings_id', 'tariff')->join('tariffs', 'tariffs.id', '=', 'tariff_id')->where("tariff_id", $sortOrder)->get();
+        }
         return view('placees', ['place' => $places, 'currentTime' => $currentTime]);
     }
 
