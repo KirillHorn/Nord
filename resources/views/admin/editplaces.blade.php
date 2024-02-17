@@ -7,8 +7,8 @@
         @csrf
         <div class="form-group text-white">
             <label for="floatingInput">Номер места</label>
-            <input type="text" class="form-control mb-1"  id="floatingInput"  name="number_place">
-            @error('number_place')
+            <input type="text" class="form-control mb-1"  id="floatingInput"  name="place">
+            @error('place')
                 <div class="alert alert-danger" role="alert">
                     {{ $message }}
                 </div>

@@ -83,16 +83,17 @@ class AdminController extends Controller
     }
     public function edit_places_validate(Request $request) {
         $request->validate([
-            'number_place' => "required|numeric",
+            'place' => "required|numeric|unique:places,number_place",
             'tariff' => "required"
         ], [
-            'number_place.required' => 'Это поле должно быть заполнено!',
-            'number_place.numeric' => 'Только числовые значения!',
+            'place.required' => 'Это поле должно быть заполнено!',
+            'place.numeric' => 'Только числовые значения!',
             'tariff.required' => 'Выберите определенный тариф',
+            'place.unique' => 'Такое место уже есть',
         ]);
         $places = $request->all();
         $addPlaces=places::create([
-            "number_place" => $places['number_place'],
+            "number_place" => $places['place'],
             "tariff_id" => $places['tariff'],
             "status" => 1,
         ]);

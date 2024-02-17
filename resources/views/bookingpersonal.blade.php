@@ -9,6 +9,7 @@
                     <th scope="col" class="text-center">Номер места</th>
                     <th scope="col" class="text-center">Время бронирования</th>
                     <th scope="col" class="text-center">Тариф/Стоимость </th>
+                    <th scope="col" class="text-center">Дата бронирования </th>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +19,7 @@
                     <th class="text-center">{{$bookings->place_id}}</th>
                     <td class="text-center">{{ $bookings->beginning_time}} - {{$bookings->end_time}}</td>
                     <td class="text-center">{{$bookings->places->tariff->title_tariff}}/{{$bookings->places->tariff->cost }} рублей</td>
+                    <td class="text-center">{{$bookings->created_at->format("d-m-Y")}}</td>
               
                 </tr>
                 @endforeach

@@ -34,7 +34,7 @@ class UpdateStatus extends Command
     {
         $time=Carbon::now()->setTimezone('Asia/Yekaterinburg')->format("H:i:s");
 
-        $bookings = bookings::where('end_time', '<', $time)->get();
+        $bookings = bookings::where('end_time', '<=', $time)->get();
 
         $this->info($bookings);
         foreach ($bookings as $booking) {

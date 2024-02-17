@@ -22,7 +22,7 @@ class MainController extends Controller
     public function bookingpersonal()
     {
         $author=Auth::user()->id;
-        $booking=bookings::where('user_id' ,$author )->paginate(5);
+        $booking=bookings::where('user_id' ,$author )->paginate(3);
         return view('/bookingpersonal',compact('booking'));
     }
     // ['booking' => $booking]
@@ -49,7 +49,7 @@ class MainController extends Controller
         $timeend = $time['beginning_time']; //со скольки
         $hours=$time['end_time']; //количество часов
         $endTime = date("H:i", strtotime("$hours hour", strtotime($timeend))); //конечное время
-        $balance = Auth::user()->balance;
+        $balance = Auth::user()->balance;   
         $tariff=places::find($time['place_id']);
         $tariffCost=tariffs::find($tariff->tariff_id);
         $cost = $tariffCost->cost;
@@ -62,7 +62,7 @@ class MainController extends Controller
             return redirect()->back()->with('error', 'У вас недостаточно средств!');
         }
         $booking = bookings::create([
-            "place_id" => $timeЫ['place_id'],
+            "place_id" => $time['place_id'],
             "beginning_time" =>  $time['beginning_time'],
             "end_time" =>  $endTime ,
             "status_id" => 1,

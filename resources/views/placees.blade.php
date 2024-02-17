@@ -21,10 +21,10 @@
                     <td class="text-center">{{ $places->tariff->title_tariff }}/{{ $places->tariff->cost }} руб</td>
                     @if ($places->status == '1')
                         <td class="text-warning text-center">{{ $places->status_place->title }}</td>
-                        <td class="text-center"><button  type="button"
-                                class="btn btn-warning button_book " data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                data-bs-whatever="@getbootstrap" data-place="{{$places->id}}"  data-tariff="{{$places->tariff->title_tariff }}"  data-cost="{{$places->tariff->cost}}">Забронировать</button></td>
+                        <td class="text-center"><button type="button" class="btn btn-warning button_book "
+                                data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
+                                data-place="{{ $places->id }}" data-tariff="{{ $places->tariff->title_tariff }}"
+                                data-cost="{{ $places->tariff->cost }}">Забронировать</button></td>
                     @else
                         <td class="text-danger text-center">{{ $places->status_place->title }}</td>
                         <td>
@@ -34,8 +34,6 @@
                     @endif
 
                 </tr>
-             
-           
             @endforeach
         </tbody>
     </table>
@@ -68,14 +66,14 @@
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">На сколько часов</label>
                         <div class="range" id="rangeContainer">
-                            <input type="range" id="rangeInput" min="1" max="12" step="1" value="1" oninput="updateLabel(this.value)" class="range-input" name="end_time" />
+                            <input type="range" id="rangeInput" min="1" max="12" step="1"
+                                value="1" oninput="updateLabel(this.value)" class="range-input" name="end_time" />
                             <div class="value2" id="rangeValue">1</div>
                         </div>
                     </div>
 
                     <div class="modal-footer" style="border-top:none;">
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
                         <button class="btn btn-warning">Забронировать</button>
                     </div>
                 </form>
@@ -88,33 +86,37 @@
 
 
 <script>
+    var place, tariff, cost;
+
     function updateLabel(value) {
         document.getElementById("rangeValue").innerText = value;
+        document.getElementById("cost").innerHTML = cost * value;
+
     }
     document.addEventListener("DOMContentLoaded", function() {
-            var buttons = document.querySelectorAll(".button_book");
-            buttons.forEach(function(button) {
-                button.addEventListener("click", function() {
-                    var place = button.dataset.place;
-                    var tariff = button.dataset.tariff;
-                    var cost = button.dataset.cost;
-                    
-                    var placeString = "Место: " + place;
-                    var tariffString = "Тариф: " + tariff;
-                    var costString = "Цена: " + cost;
+        var buttons = document.querySelectorAll(".button_book");
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                place = button.dataset.place;
+                tariff = button.dataset.tariff;
+                cost = button.dataset.cost;
 
-                    document.getElementById("modalplace").innerHTML = placeString;
-                    document.getElementById("modalTariff").innerHTML = tariffString;
-                    document.getElementById("modalcost").innerHTML = costString;
+                var placeString = "Место: " + place;
+                var tariffString = "Тариф: " + tariff;
+                var costString = "Цена: <span id='cost'>" + cost + "</span> ₽";
+
+                document.getElementById("modalplace").innerHTML = placeString;
+                document.getElementById("modalTariff").innerHTML = tariffString;
+                document.getElementById("modalcost").innerHTML = costString;
 
 
-                    document.getElementById("modalInputPlace").value = place;
-           
-                    var myModal = new bootstrap.Modal(document.getElementById('myModal'));
-                    myModal.show();
-                });
+                document.getElementById("modalInputPlace").value = place;
+
+                var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+                myModal.show();
             });
         });
+    });
 </script>
 
 </body>

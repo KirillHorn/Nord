@@ -21,7 +21,7 @@
                             <th scope="col">Номер места</th>
                             <th scope="col">Тариф места</th>
                             <th scope="col">Статус места</th>
-                            <th scope="col">Удалить место</th>
+                        
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,12 @@
                                 <td>{{ $placess->number_place }}</td>
                                 <td>{{ $placess->tariff->title_tariff }}</td>
                                 <td>{{ $placess->status_place->title }}</td>
+                                @if ($placess->status == 1)
                                 <td><a href="/{{ $placess->id }}/delete_places" class="btn btn-danger">Удалить</a></td>
+                                @else
+                                <td></td>
+                                
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>
