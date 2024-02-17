@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    
     <div class="container d-flex flex-wrap gap-3 mt-5">
         <x-admin.menu></x-admin.menu>
         <div class="table-responsive">

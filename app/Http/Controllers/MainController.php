@@ -32,6 +32,7 @@ class MainController extends Controller
         return view('/add_money');
     }
     public function placees_view(){
+    
         $currentTime = now()->setTimezone('Asia/Yekaterinburg');
         $places = places::with('bookings_id')->get();
         return view('placees', ['place' => $places, 'currentTime' => $currentTime ]);

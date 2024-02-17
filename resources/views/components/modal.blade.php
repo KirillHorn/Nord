@@ -21,7 +21,7 @@
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">До скольки</label>
-            <input type="date" class="form-control" id="recipient-name" name="end_time">
+            <input type="range" class="form-range" id="customRange1" name="end_time">
           </div>
        
       </div>

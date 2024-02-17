@@ -3,40 +3,45 @@
 
 
 <div class="container d-flex flex-wrap gap-3 px-4 mt-3">
+    <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3 gap-3" style="width:auto;height:20%">
+        <a href="/" class="text-decoration-none text-white">Сортировка Тарифов от А до Я</a>
 
-    <table class="table table-dark table-striped" style="max-width: 100%">
-        <thead>
-            <tr>
-                <th scope="col" class="text-center">Номер места</th>
-                <th scope="col" class="text-center">Тариф</th>
-                <th scope="col" class="text-center">Статус</th>
-                <th scope="col" class="text-center">Бронировать/Время</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($place as $places)
+    </div>
+    <div class="table-responsive" style="width: 100%">
+        <table class="table table-dark table-striped" >
+            <thead>
                 <tr>
-
-                    <th class="text-center">{{ $places->number_place }}</th>
-                    <td class="text-center">{{ $places->tariff->title_tariff }}/{{ $places->tariff->cost }} руб</td>
-                    @if ($places->status == '1')
-                        <td class="text-warning text-center">{{ $places->status_place->title }}</td>
-                        <td class="text-center"><button type="button" class="btn btn-warning button_book "
-                                data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
-                                data-place="{{ $places->id }}" data-tariff="{{ $places->tariff->title_tariff }}"
-                                data-cost="{{ $places->tariff->cost }}">Забронировать</button></td>
-                    @else
-                        <td class="text-danger text-center">{{ $places->status_place->title }}</td>
-                        <td>
-                            <p class=" text-warning text-center">Забронирован до {{ $places->bookings_id->end_time }}
-                            </p>
-                        </td>
-                    @endif
-
+                    <th scope="col" class="text-center">Номер места</th>
+                    <th scope="col" class="text-center">Тариф</th>
+                    <th scope="col" class="text-center">Статус</th>
+                    <th scope="col" class="text-center">Бронировать/Время</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($place as $places)
+                    <tr>
+                        <th class="text-center">{{ $places->number_place }}</th>
+                        <td class="text-center">{{ $places->tariff->title_tariff }}/{{ $places->tariff->cost }} руб</td>
+                        @if ($places->status == '1')
+                            <td class="text-warning text-center">{{ $places->status_place->title }}</td>
+                            <td class="text-center"><button type="button" class="btn btn-warning button_book "
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
+                                    data-place="{{ $places->id }}" data-tariff="{{ $places->tariff->title_tariff }}"
+                                    data-cost="{{ $places->tariff->cost }}">Забронировать</button></td>
+                        @else
+                            <td class="text-danger text-center">{{ $places->status_place->title }}</td>
+                            <td>
+                                <p class=" text-warning text-center">Забронирован до {{ $places->bookings_id->end_time }}
+                                </p>
+                            </td>
+                        @endif
+    
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+    
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -117,6 +122,12 @@
             });
         });
     });
+    var result, elements = document.getElementsByTagName('*');
+for(var i = 0; i < elements.length; i++) {
+  if(elements[i].getAttribute('type') == 'range')
+    result = elements[i].value;
+};
+
 </script>
 
 </body>
