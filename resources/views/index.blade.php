@@ -6,18 +6,17 @@
             <p class="fs-3 ">Nord в Уфе - это лучший компьютерный клуб в Уфе, с топовым железом, девайсами и удобным
                 креслами Cougar!
                 Погрузитесь в другую реальность в компьютерном клубе Nord </p>
-                @auth
+            @auth
 
 
                 @if (Auth::user()->id_role == 1)
-
                 @else
-            <a class="btn btn-warning" href="/placees">Забронировать</a>
-            @endif
+                    <a class="btn btn-warning" href="{{ route('placees', ['sort_order' => 'asc']) }}">Забронировать</a>
+                @endif
             @endauth
 
             @guest
-            <a class="btn btn-warning" href="/sign_in">Забронировать</a>
+                <a class="btn btn-warning" href="/sign_in">Забронировать</a>
             @endguest
         </div>
 </section>
@@ -64,4 +63,5 @@
 </section>
 <x-footer id="part3" />
 </body>
+
 </html>

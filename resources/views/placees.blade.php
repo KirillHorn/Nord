@@ -4,11 +4,13 @@
 
 <div class="container d-flex flex-wrap gap-3 px-4 mt-3">
     <div class="personal-settings rounded-1 d-flex flex-column border py-3 px-4 mb-3 gap-3" style="width:auto;height:20%">
-        <a href="/" class="text-decoration-none text-white">Сортировка Тарифов от А до Я</a>
-
+        <a href="{{ route('placees', ['sort_order' => 'asc']) }}" class="text-decoration-none text-white">Сортировка
+            Тарифов от А до Я</a>
+        <a href="{{ route('placees', ['sort_order' => 'desc']) }}" class="text-decoration-none text-white">Сортировка
+            Тарифов от Я до А</a>
     </div>
     <div class="table-responsive" style="width: 100%">
-        <table class="table table-dark table-striped" >
+        <table class="table table-dark table-striped">
             <thead>
                 <tr>
                     <th scope="col" class="text-center">Номер места</th>
@@ -25,23 +27,25 @@
                         @if ($places->status == '1')
                             <td class="text-warning text-center">{{ $places->status_place->title }}</td>
                             <td class="text-center"><button type="button" class="btn btn-warning button_book "
-                                    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
-                                    data-place="{{ $places->id }}" data-tariff="{{ $places->tariff->title_tariff }}"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    data-bs-whatever="@getbootstrap" data-place="{{ $places->id }}"
+                                    data-tariff="{{ $places->tariff->title_tariff }}"
                                     data-cost="{{ $places->tariff->cost }}">Забронировать</button></td>
                         @else
                             <td class="text-danger text-center">{{ $places->status_place->title }}</td>
                             <td>
-                                <p class=" text-warning text-center">Забронирован до {{ $places->bookings_id->end_time }}
+                                <p class=" text-warning text-center">Забронирован до
+                                    {{ $places->bookings_id->end_time }}
                                 </p>
                             </td>
                         @endif
-    
+
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    
+
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -123,11 +127,10 @@
         });
     });
     var result, elements = document.getElementsByTagName('*');
-for(var i = 0; i < elements.length; i++) {
-  if(elements[i].getAttribute('type') == 'range')
-    result = elements[i].value;
-};
-
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].getAttribute('type') == 'range')
+            result = elements[i].value;
+    };
 </script>
 
 </body>
